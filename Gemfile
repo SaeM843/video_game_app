@@ -48,6 +48,12 @@ gem "sassc-rails"
 # Add Devise
 gem "devise"
 
+# Add rest-client
+gem "rest-client"
+
+# Add Faker
+gem "faker"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
