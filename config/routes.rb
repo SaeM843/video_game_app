@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  namespace :owner do
+    resources :bookings, only: :index
+  end
+
   root to: "pages#home"
+
   get '/offers', to: 'offers#index'
   get '/offers/:id', to: 'offers#show'
   post '/bookings', to: 'bookings#create'
@@ -10,8 +16,4 @@ Rails.application.routes.draw do
   post '/offers', to: 'offers#create'
   patch '/bookings/:id', to: 'bookings#update'
   get '/owner/bookings', to: 'owner/bookings#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
