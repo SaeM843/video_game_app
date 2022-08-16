@@ -1,28 +1,25 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.where(user_id: current_user)
-    @game_bookings = Booking.joins(:games).where(user_id: current_user)
-    @user_games = Games.where(user_id: current_user)
+    @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
+    @user_video_games = VideoGames.where(user_id: current_user)
   end
 
   def new
-    @games = Games.find(params[:video_game_id])
+    @offers = Offers.find(params[:video_game_id])
     @booking = Booking.new
   end
 
   def create
-    @games = Games.find(params[:video_game_id])
+    @offers = Offers.find(params[:video_game_id])
     @booking = Booking.new(booking_params)
-    start_date = Date.parse(params[:booking][:start_date])
-    end_date = Date.parse(params[:booking][:end_date])
-    total_price = (end_date - start_date).to_i * @games.price
     @booking.total_price = total_price
     @booking.user = current_user
-    @booking.games = @games
+    @booking.games = @offers
     if @booking.save
-      render "confirmation"
+      redirect_to bookings_path
     else
-      render "new"
+      render :new, status: :unprocessable_entity
     end
   end
 

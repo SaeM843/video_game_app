@@ -1,16 +1,23 @@
 class OffersController < ApplicationController
   def index
-    @offers = offer.all
+    @offers = Offer.all
+  end
+
+  def show
+    @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def new
     @offer = Offer.new
-    @video_game = Video_game.find(params[:video_game_id])
+    @video_game = VideoGame.find(params[:video_game_id])
+    authorize @offer
   end
 
   def create
-    @video_game = Video_game.find(params[:video_game_id])
+    @video_game = VideoGame.find(params[:video_game_id])
     @offer = Offer.new(offer_params)
+    authorize @offer
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -18,8 +25,19 @@ class OffersController < ApplicationController
     end
   end
 
-  def show
-    @offer = Offer.find(params[:id])
+  def edit
+    raise
+    # authorize @offer
+  end
+
+  def update
+    raise
+    # authorize @offer
+  end
+
+  def destroy
+    raise
+    # authorize @offer
   end
 
   private
