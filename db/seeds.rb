@@ -21,7 +21,8 @@ def games_dataset
       title: video_game["name"],
       overview: Faker::Lorem.paragraphs,
       publishing_year: video_game["released"],
-      category: video_game["genres"][0]["name"]
+      category: video_game["genres"][0]["name"],
+      image_url: video_game["background_image"]
     )
   end
 end
