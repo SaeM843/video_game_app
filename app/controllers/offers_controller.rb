@@ -1,11 +1,21 @@
 class OffersController < ApplicationController
   def index
     @offers = Offer.all
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude
+      }
+    end
     @offers = policy_scope(Offer)
   end
 
   def show
     @offer = Offer.find(params[:id])
+    @marker = {
+      lat: @offer.latitude,
+      lng: @offer.longitude
+    }
     authorize @offer
   end
 

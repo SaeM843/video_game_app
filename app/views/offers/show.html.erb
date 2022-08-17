@@ -8,7 +8,10 @@
       <p><%= @offer.video_game.overview %></p>
     </div>
     <div class="col-6 mt-3">
-      <img class = "map-show" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkN7cWlPfK13628XGoNjMc4vKi0a23a2zsHA&usqp=CAU" alt="map">
+      <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @marker.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <div class="checkout-wrapper">
         <div class="row">
           <div class="col-12">
