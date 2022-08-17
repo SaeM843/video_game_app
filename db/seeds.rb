@@ -77,7 +77,7 @@ puts "Created #{User.first.video_games.count} video games for #{User.first.email
 
 puts "Creating offers and bookings"
 
-prices = [100, 200, 300, 500]
+prices = [150, 220, 270, 310, 340, 500, 550, 580, 600, 640]
 
 User.all.each do |user|
   offer = Offer.create!(user: user, video_game: VideoGame.all.sample, price: prices.sample)
