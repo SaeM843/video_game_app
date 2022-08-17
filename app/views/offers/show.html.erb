@@ -1,25 +1,33 @@
-<h1>This is the offers show page</h1>
 <div class="container">
-  <div class="show-left">
-    <h1>Title</h1>
-    <img src="" alt="">
-    <img src="" alt="">
-    <h2>Details</h2>
-    <h3>Text price</h3>
-    <p></p>
-  </div>
-</div>
-<div class="container">
-  <div class="show-right">
-    <img src="" alt="map">
-    <div class="checkout-wrapper">
-      <label for="">Total price</label>
-      <input type="text">
-      <label for="">start date</label>
-      <input type="text">
-      <label for="">end date</label>
-      <input type="text">
-      <%= link_to "Add to Cart", "#" %>
+  <div class="row">
+    <div class="col-6 mt-3">
+      <h1>Title</h1>
+      <%= image_tag @offer.video_game.image_url, class: "card-show" %>
+      <h2>Details</h2>
+      <h3>Text price</h3>
+      <p><%= @offer.video_game.overview %></p>
+    </div>
+    <div class="col-6 mt-3">
+      <img class = "map-show" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkN7cWlPfK13628XGoNjMc4vKi0a23a2zsHA&usqp=CAU" alt="map">
+      <div class="checkout-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <label for="total-price">Total price</label>
+            <input type="text">
+          </div>
+          <div class="col-6 p-3">
+            <label for="start-date">start date</label>
+            <input type="text">
+          </div>
+          <div class="col-6 p-3">
+            <label for="end-date">end date</label>
+            <input type="text">
+          </div>
+          <div class="col-12">
+            <%= link_to "Add to Cart", "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
