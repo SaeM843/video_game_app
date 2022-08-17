@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/offers', to: 'offers#index'
-  get '/offers/:id', to: 'offers#show'
+  get '/offers/:id', to: 'offers#show', as: :offer
   post '/bookings', to: 'bookings#create'
   get '/bookings', to: 'bookings#index'
 
