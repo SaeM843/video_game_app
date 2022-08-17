@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where(user_id: current_user)
+    @bookings = Booking.all
     @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
     @user_video_games = VideoGame.where(user_id: current_user)
   end

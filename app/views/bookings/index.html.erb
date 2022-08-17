@@ -1,19 +1,20 @@
 <h1>A GAME YOU HAVE RENTED</h1>
-<p>Index for user to see their bookings</p>
 
 <div class='container cards'>
-  <% @offers.each do |offer| %>
+  <% @bookings.each do |booking| %>
     <div class="card-trip mb-5">
-      <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+      <%= image_tag booking.offer.video_game.image_url %>
       <div>
         <div class="card-trip-infos">
           <div>
-            <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
-            <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
-          </p>
+            <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
+            <p class='mb-2'><strong><%= booking.offer.video_game.category %></strong></p>
+            <h2 class="card-trip-pricing">¥<%= booking.offer.price %></h2>
+            <h2>Start Date</h2>
+            <h2>End Date</h2>
+          </div>
         </div>
       </div>
-    </div>
-  </div >
-<% end %>
+    </div >
+  <% end %>
+</div>
