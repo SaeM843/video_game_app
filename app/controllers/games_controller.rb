@@ -6,7 +6,7 @@
 #   return (Date.new(2022, 08, 16) + number.days)
 # end
 
-# class GamesController < ApplicationController
+class GamesController < ApplicationController
 #   before_action :set_games, only: %i[show destroy]
 
 #   def index
@@ -79,4 +79,4 @@
 #   def set_games
 #     @games = Games.find(params[:id])
 #   end
-# end
+end
