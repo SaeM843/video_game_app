@@ -1,6 +1,5 @@
 <div class="container">
   <h1>GAMES YOU HAVE RENTED</h1>
-
   <div class='container cards'>
     <% @bookings.each do |booking| %>
       <div class="card-trip mb-5">
@@ -11,16 +10,15 @@
               <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
               <p class='mb-2'><strong><%= booking.offer.video_game.category %></strong></p>
               <h2>Start Date</h2>
-                <script>
+              <script>
                 date = new Date().toLocaleDateString();
                 document.write(date);
-                </script>
+              </script>
               <h2>End Date</h2>
               <script>
                 date = new Date().toLocaleDateString();
                 document.write(date);
-                </script>
-
+              </script>
             </div>
           </div>
         </div>
