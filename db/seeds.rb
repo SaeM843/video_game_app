@@ -48,27 +48,27 @@ puts "Created #{User.count} users"
 
 ################################################
 
-# puts "Cleaning up the offers and bookings database"
-# Offer.destroy_all
-# Booking.destroy_all
-# puts "Offers and bookings database cleaned"
+puts "Cleaning up the offers and bookings database"
+Offer.destroy_all
+Booking.destroy_all
+puts "Offers and bookings database cleaned"
 
-# puts "Getting offers and bookings data"
+puts "Getting offers and bookings data"
 
-# 10.times do
-#   User.all.each do |user|
-#     user.video_games << VideoGame.all.sample
-#   end
-# end
+10.times do
+  User.all.each do |user|
+    user.video_games << VideoGame.all.sample
+  end
+end
 
-# puts "Created #{User.first.video_games.count} video games for #{User.first.email}"
+puts "Created #{User.first.video_games.count} video games for #{User.first.email}"
 
 # puts "Creating offers and bookings"
 
 # User.all.each do |user|
 #   user.video_games.each do |video_game|
-#     Offer.create!(user: user, video_game: video_game)
-#     Booking.create!(user: user, offer: Offer.find_by(user: user, video_game: video_game))
+#     Offer.create!(user:, video_game:)
+#     Booking.create!(user:, offer: Offer.find_by(user:, video_game:))
 #   end
 # end
 
