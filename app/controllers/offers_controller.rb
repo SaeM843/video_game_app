@@ -5,19 +5,19 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    # authorize @offer
+    authorize @offer
   end
 
   def new
     @offer = Offer.new
     @video_game = VideoGame.find(params[:video_game_id])
-    # authorize @offer
+    authorize @offer
   end
 
   def create
     @video_game = VideoGame.find(params[:video_game_id])
     @offer = Offer.new(offer_params)
-    # authorize @offer
+    authorize @offer
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -27,17 +27,17 @@ class OffersController < ApplicationController
 
   def edit
     raise
-    # authorize @offer
+    authorize @offer
   end
 
   def update
     raise
-    # authorize @offer
+    authorize @offer
   end
 
   def destroy
     raise
-    # authorize @offer
+    authorize @offer
   end
 
   private
