@@ -44,6 +44,14 @@
   width: 40px;
 }
 
+.card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
