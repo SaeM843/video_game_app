@@ -32,6 +32,9 @@
     </div>
   </div>
 </div>
+<div class="container d-flex justify-content-center my-3">
+  <%= link_to "Your bookings", bookings_path, class: "btn btn-flat rounded-5 px-3" %>
+</div>
 <div class='container cards'>
   <% @offers.each do |offer| %>
     <div class="card-trip mb-5">
@@ -39,13 +42,14 @@
       <div>
         <div class="card-trip-infos">
           <div>
-            <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+            <h2><strong><%= link_to offer.video_game.title.upcase, offer_path(offer) %></strong></h2>
             <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
-          </p>
+            <h2 class="card-trip-pricing">¥100<%= offer.price %></h2>
+            <%= link_to "", offers_path, class: "card-link"  %>
+          </div>
         </div>
       </div>
     </div>
-  </div >
-<% end %>
-<%# Need to add a map button link to map page (if we have time) %>
+  <% end %>
+</div>
+<%# Add a map (if we have time, not necessary) %>

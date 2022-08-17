@@ -3,11 +3,17 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
     @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
     @user_video_games = VideoGame.where(user_id: current_user)
+    @bookings = policy_scope(Booking)
+  end
+
+  def show
+    authorize @booking
   end
 
   def new
     @offers = Offers.find(params[:video_game_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -16,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.total_price = total_price
     @booking.user = current_user
     @booking.games = @offers
+    authorize @booking
     if @booking.save
       redirect_to bookings_path
     else
