@@ -47,6 +47,15 @@ User.create!(email: "alison@videogames.com", password: "123123", name: "Alison")
 User.create!(email: "alex@videogames.com", password: "123123", name: "Alex")
 User.create!(email: "koki@videogames.com", password: "123123", name: "Koki")
 User.create!(email: "sae@videogames.com", password: "123123", name: "Sae")
+User.create!(email: "abc@videogames.com", password: "123123", name: "Abc")
+User.create!(email: "def@videogames.com", password: "123123", name: "Def")
+User.create!(email: "ghi@videogames.com", password: "123123", name: "Ghi")
+User.create!(email: "jkl@videogames.com", password: "123123", name: "Jkl")
+User.create!(email: "mno@videogames.com", password: "123123", name: "Mno")
+User.create!(email: "pqr@videogames.com", password: "123123", name: "Pqr")
+User.create!(email: "stu@videogames.com", password: "123123", name: "Stu")
+User.create!(email: "vwx@videogames.com", password: "123123", name: "Vwx")
+User.create!(email: "yz@videogames.com", password: "123123", name: "Yz")
 
 puts "Created #{User.count} users"
 
