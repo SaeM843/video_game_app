@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
     # @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
     # @user_video_games = VideoGame.where(user_id: current_user)
     @bookings = policy_scope(Booking)
@@ -11,22 +10,22 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @offers = Offers.find(params[:video_game_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @offers = Offers.find(params[:video_game_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
-    @booking.total_price = total_price
+    # @booking.total_price = total_price
     @booking.offer = @offer
     @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to bookings_path(@booking)
     else
-      render :new, status: :unprocessable_entity
+      render "offers/show", status: :unprocessable_entity
     end
   end
 

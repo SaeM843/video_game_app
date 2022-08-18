@@ -1,2 +1,19 @@
-<h1>I am the owner's booking index</h1>
-<p>This is for the owner to see what games they have to rent</p>
+<div class="container mt-5">
+  <h1><strong>Owner's games available</strong></h1>
+  <hr>
+  <div class='container cards'>
+    <% @bookings.each do |booking| %>
+      <div class="card-trip mb-5">
+        <%= image_tag booking.offer.video_game.image_url, alt: booking.offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
+              <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
+              <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+            </div>
+          </div>
+        </div>
+      </div >
+    <% end %>
+  </div>

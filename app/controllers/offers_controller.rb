@@ -26,6 +26,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @booking = Booking.new
     @marker = {
       lat: @offer.latitude,
       lng: @offer.longitude
@@ -35,7 +36,6 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @video_game = VideoGame.find(params[:video_game_id])
     authorize @offer
   end
 
@@ -53,6 +53,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price)
+    params.require(:offer).permit(:price, :video_game_id)
   end
 end
