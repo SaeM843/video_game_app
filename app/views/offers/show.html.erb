@@ -14,7 +14,7 @@
       </div>
       <div class="mt-5">
         <h3>Price per day</h3>
-        <p><%= @offer.price %> yen (tax incl.)</p>
+        <h6><%= @offer.price %> yen (tax incl.)</h6>
       </div>
     </div>
     <div class="col-4 py-5 ms-5">
@@ -26,6 +26,11 @@
       <% end %>
     </div>
   </div>
+  <%# <div style="width: 100%; height: 600px;" %>
+  <%# data-controller="map" %>
+  <%# data-map-markers-value="<%#= @marker.to_json %>
+  <%# data-map-api-key-value="= ENV['MAPBOX_API_KEY']></div>
   <div class='container pb-5 d-flex justify-content-center'>
-    <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
-  </div>
+    <%#= link_to "Back to games", offers_path, class: "btn btn-flat" %>
+  <%# </div> %>
+</div>

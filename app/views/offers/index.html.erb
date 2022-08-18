@@ -39,10 +39,9 @@
       <div>
         <div class="card-trip-infos">
           <div>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
             <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
             <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
+            <p class="card-trip-pricing"><strong>¥<%= offer.price %></strong></p>
             <%= link_to "", offer_path(offer), class: "card-link"  %>
           </div>
         </div>
@@ -50,3 +49,6 @@
     </div>
   <% end %>
 </div>
+<%# <div class="col-12 col-md-8"> %>
+<%#= render 'map', markers: @markers.to_json %>
+<%# </div> %>
