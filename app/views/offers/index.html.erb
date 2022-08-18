@@ -1,37 +1,4 @@
-<div class="container d-flex justify-content-center py-4">
-  <div class="slider-wrapper">
-    <div class="slider-icon">
-      <%= link_to "Action", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Puzzle", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Adventure", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "RPG", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Sports", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Strategy", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "FPS", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Racing", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Simulation", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Arcade", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-  </div>
-</div>
+<%= render 'offers/category_buttons' %>
 <div class="container">
   <h4 class="d-flex justify-content-center">Featured</h4>
   <div class='container cards'>
