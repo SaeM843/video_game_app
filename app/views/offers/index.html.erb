@@ -1,52 +1,106 @@
-<div class="container d-flex justify-content-center py-4">
-  <div class="slider-wrapper">
-    <div class="slider-icon">
-      <%= link_to "Action", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Puzzle", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Adventure", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "RPG", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Sports", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Strategy", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "FPS", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Racing", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Simulation", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-    <div class="slider-icon">
-      <%= link_to "Arcade", offers_path, class: "btn btn-dark rounded-5 px-3" %>
-    </div>
-  </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://howchoo.com/media/od/q4/ng/30-of-the-best-video-game-storylines.png?width=1440&auto=webp&quality=70);">
 </div>
-<div class='container cards'>
-  <% @offers.each do |offer| %>
-    <div class="card-trip mb-5">
-      <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
-      <div>
-        <div class="card-trip-infos">
-          <div>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
-            <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
-            <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
-            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
-            <%= link_to "", offer_path(offer), class: "card-link"  %>
+<%= render 'offers/category_buttons' %>
+<div class="container pt-3">
+  <h4 class="d-flex justify-content-center">Featured</h4>
+  <div class='container cards'>
+    <% @offers.each do |offer| %>
+      <div class="card-trip mb-5">
+        <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
+              <%= link_to "", offer_path(offer), class: "card-link"  %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+<div class="container">
+  <h4 class="d-flex justify-content-center">Most Popular</h4>
+  <div class='container cards'>
+    <% @offers.each do |offer| %>
+      <div class="card-trip mb-5">
+        <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
+              <%= link_to "", offer_path(offer), class: "card-link"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <h4 class="d-flex justify-content-center">New Releases</h4>
+  <div class='container cards'>
+    <% @offers.each do |offer| %>
+      <div class="card-trip mb-5">
+        <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
+              <%= link_to "", offer_path(offer), class: "card-link"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <h4 class="d-flex justify-content-center">Coming Soon</h4>
+  <div class='container cards'>
+    <% @offers.each do |offer| %>
+      <div class="card-trip mb-5">
+        <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
+              <%= link_to "", offer_path(offer), class: "card-link"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <h4 class="d-flex justify-content-center">Best of Action/Adventure</h4>
+  <div class='container cards'>
+    <% @offers.each do |offer| %>
+      <div class="card-trip mb-5">
+        <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+        <div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
+              <%= link_to "", offer_path(offer), class: "card-link"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%# <div class="col-12 col-md-8"> %>
+<%#= render 'map', markers: @markers.to_json %>
+<%# </div> %>

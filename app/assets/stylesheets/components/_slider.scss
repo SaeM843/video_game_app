@@ -12,8 +12,7 @@
   color: black;
   border: 1px solid lightgray;
   &:hover {
-    box-shadow: 0 0 4px rgba(15, 36, 200, 0.3);
-    // background-color: rgb(209, 209, 209); Need to fix
-    // opacity: 0.3; Need to fix
+    box-shadow: 0 0 10px rgba(23, 47, 225, 0.3);
+    font-weight: 700;
   }
 }
