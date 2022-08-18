@@ -18,6 +18,10 @@
       </div>
     </div>
     <div class="col-4 py-5 ms-5">
+      <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <h2>Rent this game</h2>
       <%= simple_form_for [@offer, @booking] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
