@@ -19,7 +19,7 @@
     </div>
     <div class="col-4 py-5 ms-5">
       <h2>Rent this game</h2>
-      <%= simple_form_for(bookings_url) do |f| %>
+      <%= simple_form_for [@offer, @booking] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
         <%= f.submit "Create booking", class: "btn btn-dark rounded" %>
