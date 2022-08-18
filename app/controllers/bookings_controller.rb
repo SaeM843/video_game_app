@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    # @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
-    # @user_video_games = VideoGame.where(user_id: current_user)
+    @booking = Booking.where(user_id: current_user)
     @bookings = policy_scope(Booking)
   end
 
@@ -23,14 +22,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to bookings_path
     else
-      render "offers/show", status: :unprocessable_entity
+      render offer_path(@offer), status: :unprocessable_entity
     end
-  end
-
-  def index_by_user
-    @booking = Booking.where(user_id: current_user)
   end
 
   private
