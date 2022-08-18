@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :offers
   has_many :video_games, through: :offers
   has_many :bookings_as_owner, through: :offers, source: :bookings
+  validates :name, presence: true
 end

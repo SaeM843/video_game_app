@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
     # @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
     # @user_video_games = VideoGame.where(user_id: current_user)
     @bookings = policy_scope(Booking)
@@ -26,7 +25,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path(@booking)
     else
-      render :new, status: :unprocessable_entity
+      render "offers/show", status: :unprocessable_entity
     end
   end
 
@@ -38,5 +37,22 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+end
+
+def index
+  if params[:query].present?
+    @booking = Booking.where("title ILIKE ?", "%#{params[:query]}%")
+  else
+    @booking = Booking.all
+  end
+end
+
+def base
+  if params[:query].present?
+    sql_query = "title ILIKE :query OR overwiev ILIKE :query"
+    @booking = Booking.where(sql_query, query: "%#{params[:query]}%")
+  else
+    @booking = Booking.all
   end
 end

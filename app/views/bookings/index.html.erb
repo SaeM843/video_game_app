@@ -11,9 +11,17 @@
               <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
               <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
               <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+              <p class="text-center badge text-bg-success text-white p-1.5 mt-2"><%= booking.status %></p>
             </div>
           </div>
         </div>
       </div >
-    <% end %>
+        <%= form_tag offers_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a game"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   </div>

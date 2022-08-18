@@ -7,7 +7,21 @@ class OffersController < ApplicationController
         lng: offer.longitude
       }
     end
-    @offers = policy_scope(Offer)
+      if params[:search].present?
+        sql_query = <<~SQL
+          video_games.title ILIKE :query
+          OR video_games.category ILIKE :query
+        SQL
+        @offers = policy_scope(Offer.joins(:video_game).where(sql_query, query: "%#{params[:search][:query]}%"))
+
+      else
+        @offers = policy_scope(Offer)
+      end
+    # if params[:search][:query].present?
+    #   @offers = policy_scope(VideoGame.search_by_title_and_genre(params[:search][:query]).offers)
+    # else
+    #   @offers = policy_scope(Offer)
+    # end
   end
 
   def show
@@ -22,7 +36,6 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @video_game = VideoGame.find(params[:video_game_id])
     authorize @offer
   end
 
@@ -37,24 +50,9 @@ class OffersController < ApplicationController
     end
   end
 
-  # def edit
-  #   raise
-  #   authorize @offer
-  # end
-
-  # def update
-  #   raise
-  #   authorize @offer
-  # end
-
-  # def destroy
-  #   raise
-  #   authorize @offer
-  # end
-
   private
 
   def offer_params
-    params.require(:offer).permit(:price)
+    params.require(:offer).permit(:price, :video_game_id)
   end
 end
