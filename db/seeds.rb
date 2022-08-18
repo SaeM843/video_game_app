@@ -7,6 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'rest-client'
 
+puts "Cleaning up bookings database"
+Booking.destroy_all
+puts "Bookings database cleaned"
+
 puts "Cleaning up the offers database..."
 Offer.destroy_all
 puts "Offer database cleaned"
@@ -61,27 +65,25 @@ puts "Created #{User.count} users"
 
 ################################################
 
-puts "Cleaning up bookings database"
-Booking.destroy_all
-puts "Bookings database cleaned"
+# puts "Getting offers and bookings data"
 
-puts "Getting offers and bookings data"
+# 10.times do
+#   User.all.each do |user|
+#     user.video_games << VideoGame.all.sample
+#   end
+# end
 
-10.times do
-  User.all.each do |user|
-    user.video_games << VideoGame.all.sample
-  end
-end
+# puts "Created #{User.first.video_games.count} video games for #{User.first.email}"
 
-puts "Created #{User.first.video_games.count} video games for #{User.first.email}"
-
-puts "Creating offers and bookings"
+# puts "Creating offers and bookings"
 
 prices = [150, 220, 270, 310, 340, 500, 550, 580, 600, 640]
 
 User.all.each do |user|
-  offer = Offer.create!(user: user, video_game: VideoGame.all.sample, price: prices.sample)
-  Booking.create!(user: User.where.not(id: user).sample, offer: offer, start_date: Date.today + rand(1..3), end_date: Date.today + rand(7..12))
+  10.times do
+    offer = Offer.create!(user: user, video_game: VideoGame.all.sample, price: prices.sample)
+    Booking.create!(user: User.where.not(id: user).sample, offer: offer, start_date: Date.today + rand(1..3), end_date: Date.today + rand(7..12))
+  end
 end
 
 puts "Created #{Offer.count} offers and #{Booking.count} bookings"
