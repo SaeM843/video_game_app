@@ -22,7 +22,6 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @video_game = VideoGame.find(params[:video_game_id])
     authorize @offer
   end
 
