@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://howchoo.com/media/od/q4/ng/30-of-the-best-video-game-storylines.png?width=1440&auto=webp&quality=70);">
 </div>
 <%= render 'offers/category_buttons' %>
+<div class="container text-center">
+  <p>We have a vast selection of games to choose from. Trust us that you can find any game you could possibly want! Just select a game and set your rental period. Prices are per day and durations can be extended at any time. If you have a game you want to rent out check out our rentals page!</p>
+</div>
 <div class="container pt-3">
   <h4 class="d-flex justify-content-center"></h4>
   <div class='container cards'>
@@ -12,6 +15,7 @@
             <div>
               <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
               <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+              <p class='mb-2'><strong>Released: <%= offer.video_game.publishing_year %></strong></p>
               <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
               <%= link_to "", offer_path(offer), class: "card-link"  %>
             </div>

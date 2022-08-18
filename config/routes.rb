@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   devise_for :users
 
   namespace :owner do
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   resources :offers, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:create, :update]
   end
+  # resources :offers do
+  #   resources :reviews, only: [:new, :create]
+  # end
 
   # get '/offers', to: 'offers#index'
   # get '/offers/:id', to: 'offers#show', as: :offer
