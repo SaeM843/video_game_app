@@ -15,5 +15,12 @@
           </div>
         </div>
       </div >
-    <% end %>
+        <%= form_tag offers_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a game"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   </div>
