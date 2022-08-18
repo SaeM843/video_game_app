@@ -8,8 +8,9 @@
       <div class="mt-3">
         <h2>Game overview</h2>
         <%# Replace the lorem below with a paragraph about games. %>
-        <p><%= @offer.video_game.overview %></p>
-        <p><strong>Published: </strong><%= @offer.video_game.publishing_year %></p>
+        <p>The newest installment of the critically acclaimed franchise gives players a deeply personalized experience with the brand-new Custom Character Variation System. Players can choose which Skins, Special Abilities, Intro and Victory Cinemas, Gear, Taunts, and Brutalities they wish to use to suit their style. <%= @offer.video_game.title %> features multiple modes and challenges to keep you busy, plus a cinematic story that continues the <%= @offer.video_game.title %> legacy.</p>
+        <%# <p>= @offer.video_game.overview</p> %>
+        <p><strong>Released: </strong><%= @offer.video_game.publishing_year %></p>
         <p><strong>Category: </strong><%= @offer.video_game.category %></p>
       </div>
       <div class="mt-5">
