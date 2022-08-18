@@ -1,6 +1,10 @@
 <h1>ADD YOUR GAME FOR RENTAL</h1>
 <%= simple_form_for @offer do |f| %>
-  <%= %>
-  <%= f.input :price, label: 'Set a price for your game:', as: :integer %>
+  <%= f.association :video_game %>
+  <%= f.input :price, label: 'Set a price for your game:', as: :string %>
   <%= f.button :submit, "Confirm", class: "btn btn-dark rounded" %>
 <% end %>
+
+<div class='container pb-5 d-flex justify-content-center'>
+  <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
+</div>
