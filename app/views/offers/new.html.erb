@@ -1,12 +1,14 @@
-<div class="container mt-5">
-  <h1>ADD YOUR GAME FOR RENTAL</h1>
-  <%= simple_form_for @offer do |f| %>
-    <%= f.association :video_game %>
-    <%= f.input :price, label: 'Set a price for your game:', as: :string %>
-    <%= f.button :submit, "Confirm", class: "btn btn-dark rounded" %>
-  <% end %>
-
-  <div class='container pb-5 d-flex justify-content-center'>
+<div class="container my-5">
+  <h1>Add your game for rental</h1>
+  <hr>
+  <div class="col-6">
+    <%= simple_form_for @offer do |f| %>
+      <%= f.association :video_game, placeholder: 'Choose a game title' %>
+      <%= f.input :price, label: 'Set a price for your game', as: :string, placeholder: 'E.g. ¥300' %>
+      <%= f.button :submit, "Confirm", class: "btn btn-dark rounded" %>
+    <% end %>
+  </div>
+  <div class='container py-5 d-flex justify-content-center'>
     <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
   </div>
 </div>

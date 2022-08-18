@@ -9,6 +9,4 @@ class Booking < ApplicationRecord
   def total_price
     (end_date - start_date).to_i * offer.price
   end
-
-
 end

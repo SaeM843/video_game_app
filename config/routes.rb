@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :update]
   end
 
-
   # get '/offers', to: 'offers#index'
   # get '/offers/:id', to: 'offers#show', as: :offer
   # post '/bookings', to: 'bookings#create'

@@ -1,18 +1,25 @@
-<div class="container mt-5">
-  <h1><strong>Your games for rental</strong></h1>
+<div class='container py-5'>
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="p-2 mb-0"><strong>Your games for rental</strong></h1>
+    <%= link_to "Add new rental", new_offer_path, class: "btn btn-dark rounded" %>
+  </div>
   <hr>
-  <div class='container cards'>
-    <% @bookings.each do |booking| %>
-      <div class="card-trip mb-5">
-        <%= image_tag booking.offer.video_game.image_url, alt: booking.offer.video_game.title %>
-        <div>
-          <div class="card-trip-infos">
-            <div>
-              <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
-              <p><%= booking.offer.price %> yen</p>
+  <div class='container cards py-3'>
+    <% if @offers.any? %>
+      <% @offers.each do |offer| %>
+        <div class="card-trip mb-5">
+          <%= image_tag offer.video_game.image_url, alt: offer.video_game.title %>
+          <div>
+            <div class="card-trip-infos">
+              <div>
+                <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+                <p><%= offer.price %> yen</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div >
+        </div >
+      <% end %>
     <% end %>
   </div>
+</div>
+<%# This page should show offers aka what the person is renting out (not bookings) needs to be fixed %>
