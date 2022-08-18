@@ -1,7 +1,6 @@
 <h1>ADD YOUR GAME FOR RENTAL</h1>
-<p>This page needs a form to add offers (game with price)</p>
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username, label: "Choose a game from the list:" %>
-  <%= f.input :password %>
-  <%= f.button :submit %>
+<%= simple_form_for @offer do |f| %>
+  <%= %>
+  <%= f.input :price, label: 'Set a price for your game:', as: :integer %>
+  <%= f.button :submit, "Confirm", class: "btn btn-dark rounded" %>
 <% end %>
