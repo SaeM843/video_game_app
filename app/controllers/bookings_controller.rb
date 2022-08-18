@@ -11,15 +11,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @offers = Offers.find(params[:video_game_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @offers = Offers.find(params[:video_game_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
-    @booking.total_price = total_price
+    # @booking.total_price = total_price
     @booking.offer = @offer
     @booking.user = current_user
     authorize @booking
