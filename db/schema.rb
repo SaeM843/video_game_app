@@ -60,9 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_17_123316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
   end
 
   add_foreign_key "bookings", "offers"
