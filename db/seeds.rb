@@ -80,10 +80,8 @@ puts "Created #{User.count} users"
 prices = [150, 220, 270, 310, 340, 500, 550, 580, 600, 640]
 
 User.all.each do |user|
-  10.times do
     offer = Offer.create!(user: user, video_game: VideoGame.all.sample, price: prices.sample)
     Booking.create!(user: User.where.not(id: user).sample, offer: offer, start_date: Date.today + rand(1..3), end_date: Date.today + rand(7..12))
-  end
 end
 
 puts "Created #{Offer.count} offers and #{Booking.count} bookings"
