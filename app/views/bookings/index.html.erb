@@ -1,54 +1,19 @@
-
-<div class="container">
-  <h1>GAMES YOU HAVE RENTED</h1>
-
+<div class="container mt-5">
+  <h1><strong>Your current bookings</strong></h1>
+  <hr>
   <div class='container cards'>
     <% @bookings.each do |booking| %>
       <div class="card-trip mb-5">
-        <%= image_tag booking.offer.video_game.image_url %>
+        <%= image_tag booking.offer.video_game.image_url, alt: booking.offer.video_game.title %>
         <div>
           <div class="card-trip-infos">
             <div>
               <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
-              <p class='mb-2'><strong><%= booking.offer.video_game.category %></strong></p>
-              <h2>Start Date</h2>
-                <script>
-                date = new Date().toLocaleDateString();
-                document.write(date);
-                </script>
-              <h2>End Date</h2>
-              <script>
-                date = new Date().toLocaleDateString();
-                document.write(date);
-                </script>
-
+              <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
+              <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
             </div>
           </div>
         </div>
       </div >
     <% end %>
   </div>
-
-<div class="container mt-5">
-  <h1><strong>Your current bookings</strong></h1>
-  <hr>
-</div>
-<div class='container cards'>
-  <% @bookings.each do |booking| %>
-    <div class="card-trip mb-5">
-      <%= image_tag booking.video_game.image_url, alt: booking.video_game.title %>
-      <div>
-        <div class="card-trip-infos">
-          <div>
-            <h2><strong><%= booking.video_game.title.upcase %></strong></h2>
-            <p class='mb-2'><strong><%= booking.video_game.category %></strong></p>
-            <p class='mb-2'><strong><%= booking.start_date %> ~ <%= booking.end_date %></strong></p>
-            <h2 class="card-trip-pricing">¥<%= booking.price %></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
-</div>

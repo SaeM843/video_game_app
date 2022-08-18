@@ -49,6 +49,10 @@
             <h2><strong><%= link_to offer.video_game.title.upcase %></strong></h2>
             <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
             <h2 class="card-trip-pricing">¥100<%= offer.price %></h2>
+
+            <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+            <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
+            <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
             <%= link_to "", offer_path(offer), class: "card-link"  %>
           </div>
         </div>
@@ -56,4 +60,3 @@
     </div>
   <% end %>
 </div>
-<%# Add a map (if we have time, not necessary) %>
