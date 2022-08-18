@@ -3,7 +3,7 @@
     <div class="col-7 me-2">
       <div class="mt-3">
         <h1><strong><%= @offer.video_game.title %></strong></h1>
-        <%= image_tag @offer.video_game.image_url, class: "card-show rounded" %>
+        <%= image_tag @offer.video_game.image_url, class: "card-show rounded mt-2" %>
       </div>
       <div class="mt-3">
         <h2>Game overview</h2>
@@ -11,14 +11,29 @@
         <p>The newest installment of the critically acclaimed franchise gives players a deeply personalized experience with the brand-new Custom Character Variation System. Players can choose which Skins, Special Abilities, Intro and Victory Cinemas, Gear, Taunts, and Brutalities they wish to use to suit their style. <%= @offer.video_game.title %> features multiple modes and challenges to keep you busy, plus a cinematic story that continues the <%= @offer.video_game.title %> legacy.</p>
         <%# <p>= @offer.video_game.overview</p> %>
         <p><strong>Released: </strong><%= @offer.video_game.publishing_year %></p>
-        <p><strong>Category: </strong><%= @offer.video_game.category %></p>
+        <p><strong>Genre: </strong><%= @offer.video_game.category %></p>
       </div>
-      <div class="mt-5">
-        <h3>Price per day</h3>
-        <h6><%= @offer.price %> yen (tax incl.)</h6>
+      <div class="mt-4">
+        <h3>Specs & Requirements</h3>
+        <p><strong>Memory</strong> 50GB</p>
+        <p><strong>Xbox One X Enhanced</strong> Yes</p>
+        <p><strong>Online Features</strong> Achievements, Online Multiplayer</p>
+        <p><strong>Modes</strong> Multiplayer, Story, Versus, Arcade, Exhibition</p>
+        <p><strong>Audio/Video</strong> HDR, In-Game Dolby Digital</p>
+      </div>
+      <div class="mt-4">
+        <h3>Game Details</h3>
+        <p><strong>Players</strong> 2</p>
+        <p><strong>Online Players</strong> 8</p>
+        <p><strong>Publisher</strong> WB Games</p>
+        <p><strong>Rating</strong> Mature 17+</p>
       </div>
     </div>
     <div class="col-4 py-5 ms-5">
+      <div class="my-5">
+        <h3>Price per day</h3>
+        <h6><%= @offer.price %> yen (tax incl.)</h6>
+      </div>
       <h2>Rent this game</h2>
       <%= simple_form_for [@offer, @booking] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
