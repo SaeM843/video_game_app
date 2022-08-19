@@ -81,7 +81,7 @@ prices = [110, 135, 150, 190, 220, 270, 310, 340]
 
 User.all.each do |user|
   offer = Offer.create!(user: user, video_game: VideoGame.all.sample, price: prices.sample)
-  Booking.create!(user: User.where.not(id: user).sample, offer: offer, start_date: Date.today + rand(1..3), end_date: Date.today + rand(8..16))
+  Booking.create!(user: User.where.not(id: user).sample, offer: offer, start_date: Date.today + rand(1..2), end_date: Date.today + rand(6..8))
 end
 
 puts "Created #{Offer.count} offers and #{Booking.count} bookings"
