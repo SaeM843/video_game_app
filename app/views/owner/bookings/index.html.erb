@@ -13,6 +13,7 @@
                 <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
                 <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
                 <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+                <h6><strong>Total: <%= booking.total_price %> yen (tax incl.)</strong></h6>
                 <% if booking.pending? %>
                   <!-- Display Forms-->
                   <div class="d-flex">
