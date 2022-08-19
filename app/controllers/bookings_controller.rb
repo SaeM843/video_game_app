@@ -8,6 +8,13 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(booking_params)
+    redirect_to owner_bookings_path
+  end
+
   def new
     @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
@@ -31,7 +38,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 end
 
