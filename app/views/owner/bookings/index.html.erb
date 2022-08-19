@@ -1,6 +1,6 @@
 <div class='container py-5'>
   <h1><strong>Your pending rentals</strong></h1>
-  <p>Please accept or reject your offers below.</p>
+  <p>Please <strong>accept</strong> or <strong>reject</strong> your offers below. Payment will be sent in two to three business days as soon as the booking is confirmed.</p>
   <hr>
   <div class='container cards'>
     <% if @bookings.any? %>
@@ -12,7 +12,7 @@
               <div>
                 <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
                 <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
-                <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+                <p class="pb-3">Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
                 <h6><strong>Total: <%= booking.total_price %> yen (tax incl.)</strong></h6>
                 <% if booking.pending? %>
                   <!-- Display Forms-->
@@ -42,7 +42,7 @@
     <%= link_to "Add new rental", new_offer_path, class: "btn btn-dark rounded" %>
   </div>
   <hr>
-  <div class='container cards py-3'>
+  <div class='container cards py-5'>
     <% if @offers.any? %>
       <% @offers.each do |offer| %>
         <div class="card-trip mb-5">
@@ -51,7 +51,7 @@
             <div class="card-trip-infos">
               <div>
                 <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
-                <p><%= offer.price %> yen</p>
+                <h6><%= offer.price %> yen per day</h6>
               </div>
             </div>
           </div>
@@ -60,5 +60,3 @@
     <% end %>
   </div>
 </div>
-<%# This page should show offers aka what the person is renting out (not bookings) needs to be fixed %>
-<%# Add accept/reject %>
