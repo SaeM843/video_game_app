@@ -29,6 +29,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @offers = policy_scope(Offer)
     @booking = Booking.new
+    @review = Review.new
     # @marker = {
     #   lat: @offer.latitude,
     #   lng: @offer.longitude
