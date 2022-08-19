@@ -39,9 +39,16 @@
 
 .card-trip-infos .card-trip-pricing {
   position: absolute;
-  right: 20px;
-  top: 55px;
+  right: 15px;
+  top: 90px;
   width: 40px;
+  text-align: center;
+}
+
+.card-trip-infos .badge {
+  margin-bottom: auto;
+  margin-top: 10px;
+  justify-content: center;
 }
 
 .card-link {
