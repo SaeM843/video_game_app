@@ -7,6 +7,6 @@ class Booking < ApplicationRecord
   scope :approved, -> { where(status: true) }
 
   def total_price
-    (end_date - start_date).to_i * offer.price
+    (end_date.day - start_date.day).to_i * offer.price
   end
 end

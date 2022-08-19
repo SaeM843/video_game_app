@@ -6,13 +6,14 @@
       <% @bookings.each do |booking| %>
         <div class="card-trip mb-5">
           <%= image_tag booking.offer.video_game.image_url, alt: booking.offer.video_game.title %>
-          <div>
-            <div class="card-trip-infos">
+          <div class="card-trip-infos">
+            <div class="justify-content-center">
+              <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
+              <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
+              <p class="pb-3">Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+              <h6><strong>Total: <%= booking.total_price %> yen (tax incl.)</strong></h6>
               <div>
-                <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
-                <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
-                <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
-                <p class="text-center badge text-bg-success text-white p-1 mt-2"><%= booking.status.capitalize %></p>
+                <p class="badge text-bg-success text-white p-2 mt-2"><%= booking.status.capitalize %></p>
               </div>
             </div>
           </div>
@@ -21,5 +22,3 @@
     <% end %>
   </div>
 </div>
-<%# Doesn't tell the user how much the total price is %>
-<%# Status is default %>
