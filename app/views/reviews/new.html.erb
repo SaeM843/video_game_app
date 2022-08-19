@@ -2,6 +2,7 @@
   <h1>Leave Your Review!</h1>
   <hr>
   <div class="col-6">
+    <h2 class ="img-title"><%= @offer.video_game.title %></h2>
     <%= image_tag @offer.video_game.image_url, class: "review-image"%>
     <%= simple_form_for [@offer, @review] do |f| %>
       <%= f.input :content %>
