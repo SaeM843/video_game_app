@@ -13,7 +13,7 @@
         <div>
           <div class="card-trip-infos">
             <div>
-              <h2><strong><%= offer.video_game.title.upcase %></strong></h2>
+              <h2 class="d-inline-block text-truncate" style="max-width: 200px"><strong><%= offer.video_game.title.upcase %></strong></h2>
               <p class='mb-2'><strong><%= offer.video_game.category %></strong></p>
               <p class='mb-2'><strong>Released: <%= offer.video_game.publishing_year %></strong></p>
               <h5 class="card-trip-pricing"><strong>¥<%= offer.price %></strong></h5>
