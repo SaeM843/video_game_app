@@ -13,4 +13,14 @@ class Booking < ApplicationRecord
   def pending?
     status == 'pending'
   end
+
+  def color
+    if status == "pending"
+      "text-bg-info"
+    elsif status == "rejected"
+      "text-bg-danger"
+    else
+      "text-bg-success"
+  end
+end
 end

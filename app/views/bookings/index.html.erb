@@ -13,7 +13,10 @@
               <p class="pb-3">Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
               <h6><strong>Total: <%= booking.total_price %> yen (tax incl.)</strong></h6>
               <div>
-                <p class="badge text-bg-success text-white p-2 mt-2"><%= booking.status.capitalize %></p>
+                <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
+                <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
+                <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+                <p class="text-center badge <%= booking.color %> text-white p-1 mt-2"><%= booking.status.capitalize %></p>
               </div>
             </div>
           </div>
