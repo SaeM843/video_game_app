@@ -1,5 +1,6 @@
 <div class='container py-5'>
- <h1><strong>Your current bookings</strong></h1>
+  <h1><strong>Your pending rentals</strong></h1>
+  <p>Please accept or reject your offers below.</p>
   <hr>
   <div class='container cards'>
     <% if @bookings.any? %>
@@ -19,16 +20,15 @@
                       <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
                       <%= f.submit 'Accept', class: 'btn btn-info' %>
                     <% end %>
-
                     <%= simple_form_for booking do |f| %>
                       <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
                       <%= f.submit 'Reject', class: 'btn btn-light' %>
                     <% end %>
                   </div>
-                  <% else %>
-                    <!-- Display Status-->
-                    <p class="text-center badge text-bg-success text-white p-1 mt-2"><%= booking.status.capitalize %></p>
-                  <% end %>
+                <% else %>
+                  <!-- Display Status-->
+                  <p class="text-center badge text-bg-success text-white p-1 mt-2"><%= booking.status.capitalize %></p>
+                <% end %>
               </div>
             </div>
           </div>
