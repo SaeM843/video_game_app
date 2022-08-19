@@ -1,8 +1,6 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
-    # @video_game_bookings = Booking.joins(:video_games).where(user_id: current_user)
-    # @user_video_games = VideoGame.where(user_id: current_user)
     @bookings = policy_scope(Booking)
   end
 
@@ -14,6 +12,21 @@ class BookingsController < ApplicationController
     @offers = Offers.find(params[:video_game_id])
     @booking = Booking.new
     authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      # redirect_to # up to you...
+    else
+      # render # where was the booking update form?
+    end
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:status, :start_date, :end_date)
   end
 
   def create

@@ -11,6 +11,10 @@
               <h2><strong><%= booking.offer.video_game.title.upcase %></strong></h2>
               <p>Rental start: <%= booking.start_date.strftime("%d/%m/%Y") %></p>
               <p>Rental end: <%= booking.end_date.strftime("%d/%m/%Y") %></p>
+             <form method="POST">
+             <input type="submit" name="accept" id="accept" value="Accept">
+             <input type="submit" name="decline" id="decline" value="Decline">
+             </form>
             </div>
           </div>
         </div>
@@ -24,3 +28,8 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
   </div>
+
+
+  <% @bookings.each do |booking| %>
+  current_user.bookings_as_owner
+  <% end %>

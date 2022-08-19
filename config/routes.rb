@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :owner do
-    resources :bookings, only: :index
+    resources :bookings, only: [:update]
   end
 
   root to: "pages#home"
