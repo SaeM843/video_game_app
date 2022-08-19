@@ -55,9 +55,19 @@
         </div>
       </div>
     </div>
+    <div class="review">
+      <h2>User Reviews</h2>
+      <% if @offer.reviews.any? %>
+        <%= link_to "Leave your review", new_offer_review_path(@offer), class: "btn btn-dark rounded" %>
+        <% @offer.reviews.each do |review| %>
+          <li class ="review-content"><%= review.content %></li>
+        <% end %>
+      <% else %>
+        <%= link_to 'Be the first to review', new_offer_review_path(@offer), class: "btn btn-dark rounded" %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class='container pb-5 d-flex justify-content-center'>
-  <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
-</div>
+  <div class='container pb-5 d-flex justify-content-center'>
+    <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
+  </div>
 </div>

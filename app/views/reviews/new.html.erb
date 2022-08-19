@@ -1,5 +1,14 @@
-<%# <h1>New review</h1> %>
-<%#= simple_form_for [@offer, @review] do |f| %>
-  <%#= f.input :content %>
-  <%#= f.submit "Submit review", class: "btn btn-dark" %>
-  <%# end %>
+<div class="container my-5">
+  <h1>Leave Your Review!</h1>
+  <hr>
+  <div class="col-6">
+    <%= image_tag @offer.video_game.image_url, class: "review-image"%>
+    <%= simple_form_for [@offer, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.submit "Submit review", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+  <div class='container py-5 d-flex justify-content-center'>
+    <%= link_to "Back to games", offers_path, class: "btn btn-flat" %>
+  </div>
+</div>
