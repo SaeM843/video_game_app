@@ -4,7 +4,11 @@
   <div class="col-6">
     <%= simple_form_for [@video_game, @offer] do |f| %>
       <%= f.association :video_game, placeholder: 'Choose a game title' %>
-      <%= f.input :price, label: 'Set a price for your game', as: :string, placeholder: 'E.g. ¥300' %>
+      <label class="form-label required" for="offer_price">Set a price for your game<abbr title="required">*</abbr></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text h-100">￥</span>
+          <%= f.input :price, label: false, as: :string, placeholder: 'E.g. ¥300' %>
+        </div>
       <%= f.button :submit, "Confirm", class: "btn btn-dark rounded" %>
     <% end %>
   </div>
