@@ -35,19 +35,19 @@ class BookingsController < ApplicationController
   end
 end
 
-def index
-  if params[:query].present?
-    @booking = Booking.where("title ILIKE ?", "%#{params[:query]}%")
-  else
-    @booking = Booking.all
-  end
-end
+# def index
+#   if params[:query].present?
+#     @booking = Booking.where("title ILIKE ?", "%#{params[:query]}%")
+#   else
+#     @booking = Booking.all
+#   end
+# end
 
-def base
-  if params[:query].present?
-    sql_query = "title ILIKE :query OR overwiev ILIKE :query"
-    @booking = Booking.where(sql_query, query: "%#{params[:query]}%")
-  else
-    @booking = Booking.all
-  end
-end
+# def base
+#   if params[:query].present?
+#     sql_query = "title ILIKE :query OR overwiev ILIKE :query"
+#     @booking = Booking.where(sql_query, query: "%#{params[:query]}%")
+#   else
+#     @booking = Booking.all
+#   end
+# end
