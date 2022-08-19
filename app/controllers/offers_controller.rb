@@ -42,10 +42,8 @@ class OffersController < ApplicationController
   end
 
   def create
-    @video_game = VideoGame.find(params[:video_game_id])
     # @offer = policy_scope([:owner, Booking])
     @offer = Offer.new(offer_params)
-    @offer.video_game = @video_game
     @offer.user = current_user
     authorize @offer
     if @offer.save
